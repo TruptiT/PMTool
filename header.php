@@ -1,5 +1,5 @@
 <?php include_once('config.php') ;
-echo APP_ROOT.'assets/bootstrap/css/bootstrap.css' ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

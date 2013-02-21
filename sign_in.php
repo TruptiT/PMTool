@@ -8,8 +8,8 @@ function Signin(formId){
         type: 'POST',
         url: "ajax.php?q=user_signin",
         data: $("#"+formId).serialize(), 
-        success: function(data) {
-            if(data==1){
+        success: function(response) {
+            if(response==1){
             	location.href =<?php echo APP_ROOT?>+"user/user_dashboard.php";
                 }else{
 				alert("Invalid Username");

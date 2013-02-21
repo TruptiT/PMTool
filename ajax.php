@@ -1,7 +1,7 @@
 <?php
 include_once('config.php');
 include_once("/user/User.php");
-
+session_start();
 
 if ($_REQUEST["q"] == "user_registration"){
 // 	$user = new User();

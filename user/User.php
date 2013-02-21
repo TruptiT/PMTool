@@ -37,6 +37,7 @@ class User{
 			return false;
 		}else{
 			$_SESSION["user"] = $get_user ;
+			//print_r($_SESSION["user"]);
 			return true;
 		}
 	}
