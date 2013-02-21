@@ -33,3 +33,4 @@ echo APP_ROOT.'assets/bootstrap/css/bootstrap.css' ?>
 </head>
 
 <body>
+<?php session_start(); ?>
