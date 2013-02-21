@@ -48,7 +48,6 @@ function processForm(formId) {
 	        data: $("#"+formId).serialize(), 
 	        success: function(data) {
 	            location.href ="index.php";
-	            
 	        }
 	    } );
 			return flag;

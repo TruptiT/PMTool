@@ -26,6 +26,20 @@ class User{
 		}
 	}
 
+	function user_signin($username,$password){
+		//print_r($username);
+		$password = md5($password);
+		$query = mysql_query("SELECT * FROM users where name='$username' and password = '$password'") or die(mysql_error());
+		$get_user = mysql_fetch_row($query);
+		//print_r(mysql_num_rows($query));
+		if(mysql_num_rows($query) == 0){
+			$_SESSION["user"] = "";
+			return false;
+		}else{
+			$_SESSION["user"] = $get_user ;
+			return true;
+		}
+	}
 }
 $user = new User();
 ?>

@@ -1,15 +1,5 @@
 <?php
-include_once("header_files.php");
-?>
-
-<?php if(isset($_SESSION["registration_done"]) && $_SESSION["registration_done"]) :?>
-<div class="alert alert-success" style="margin-top: 60px;margin-left: 90px;margin-right: 90px;">
-	<a href="javascript:void(0);" onclick="$('.alert-success').hide();" class="close" data-dismiss="alert">&times;</a>
-	<strong>Success!</strong> Your registration has been completed successfully!!!
-</div>
-<?php 
-session_unset("registration_done");
-endif; 
+include_once("../header_files.php");
 ?>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -20,7 +10,7 @@ endif;
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="brand" href="#">Project Management Tool</a>
+			<a class="brand" href="#">Welcome Username!!!!!!!!!</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li class="active"><a href="#">Home</a></li>
@@ -103,4 +93,4 @@ endif;
 </div>
 <!-- /container -->
 
-<?php include_once("footer.php"); ?>
+<?php include_once("../footer.php"); ?>
