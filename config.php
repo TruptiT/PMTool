@@ -1,4 +1,5 @@
 <?php 
+define('APP_ROOT', '/PMTool/');
 define('DB_HOST','localhost');
 define('DB_NAME','project_management');
 define('DB_USERNAME','root');
