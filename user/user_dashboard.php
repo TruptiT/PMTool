@@ -1,6 +1,9 @@
 <?php
 include_once("../header_files.php");
+include_once('../authorize.php');
+$company_details = $user->get_company();
 ?>
+<!--  Array ( [0] => 28 [1] => trupti [2] => trupti@fwfwe.com [3] => 202cb962ac59075b964b07152d234b70 [4] => 0 [5] => 0 [6] => 29 [7] => 2013-02-21 10:41:24 [8] => 0000-00-00 00:00:00 ) -->
 
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
@@ -10,16 +13,15 @@ include_once("../header_files.php");
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="brand" href="#">Welcome Username!!!!!!!!!</a>
+			<a class="brand" href="#">Welcome <?php echo $company_details['name'] ?>!!!!!!!!!!!!!</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">Contact</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown">Dropdown <b class="caret"></b>
-					</a>
-						<ul class="dropdown-menu">
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+					 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 							<li><a href="#">Action</a></li>
 							<li><a href="#">Another action</a></li>
 							<li><a href="#">Something else here</a></li>
@@ -27,15 +29,12 @@ include_once("../header_files.php");
 							<li class="nav-header">Nav header</li>
 							<li><a href="#">Separated link</a></li>
 							<li><a href="#">One more separated link</a></li>
-						</ul>
+							</ul>
 					</li>
 				</ul>
 				<div style="float: right;">
-					<a href="#sign_in_modal" role="button" class="btn"
-						data-toggle="modal">Sign in</a> <span
-						style="color: white; vertical-align: middle;">Or</span> <a
-						href="#sign_up_modal" role="button" class="btn"
-						data-toggle="modal">Register</a>
+					<a href="<?php echo APP_ROOT ?>index.php?q=logout" role="button" class="btn">Log out</a>
+					<span style="color: white; vertical-align: middle;"></span>
 				</div>
 			</div>
 			<!--/.nav-collapse -->

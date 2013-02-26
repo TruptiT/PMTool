@@ -7,21 +7,14 @@
 <!-- Le javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="./assets/jquery/jquery-1.7.2.min.js"> </script>
-<script
-	type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-<script
-	src="./assets/bootstrap/js/jquery.js"></script>
-<script
-	src="./assets/bootstrap/js/bootstrap-transition.js"></script>
-<script
-	src="./assets/bootstrap/js/bootstrap-alert.js"></script>
-<script
-	src="./assets/bootstrap/js/bootstrap-modal.js"></script>
-<script
-	src="./assets/bootstrap/js/bootstrap-dropdown.js"></script>
-<script
-	src="./assets/bootstrap/js/bootstrap-scrollspy.js"></script>
+<script src='<?= APP_ROOT.'assets/jquery/jquery-1.7.2.min.js' ?>'> </script>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script src='<?= APP_ROOT.'assets/bootstrap/js/jquery.js' ?>'></script>
+<script src='<?= APP_ROOT.'assets/bootstrap/js/bootstrap-transition.js' ?>'></script>
+<script src='<?= APP_ROOT.'assets/bootstrap/js/bootstrap-alert.js' ?>'></script>
+<script src='<?= APP_ROOT.'assets/bootstrap/js/bootstrap-modal.js' ?>'></script>
+<script src='<?= APP_ROOT.'assets/bootstrap/js/bootstrap-dropdown.js' ?>'></script>
+<script src="./assets/bootstrap/js/bootstrap-scrollspy.js"></script>
 <script
 	src="./assets/bootstrap/js/bootstrap-tab.js"></script>
 <script

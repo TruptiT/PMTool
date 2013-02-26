@@ -41,6 +41,13 @@ class User{
 			return true;
 		}
 	}
+
+	function get_company(){
+		$session_user = $_SESSION["user"];
+		$q = mysql_query("SELECT * FROM `companies` where id = '$session_user[6]' ");
+		$company_details = mysql_fetch_array($q);
+		return $company_details;
+	}
 }
-$user = new User();
+	$user = new User();
 ?>
