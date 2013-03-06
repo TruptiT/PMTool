@@ -5,10 +5,10 @@ include_once("header_files.php");
 <?php if(isset($_SESSION["registration_done"]) && $_SESSION["registration_done"]) :?>
 <div class="alert alert-success" style="margin-top: 60px;margin-left: 90px;margin-right: 90px;">
 	<a href="javascript:void(0);" onclick="$('.alert-success').hide();" class="close" data-dismiss="alert">&times;</a>
-	<strong>Success!</strong> Your registration has been completed successfully!!!
+	<strong>Well done!</strong> Your registration has been completed successfully!!!
 </div>
 <?php 
-session_unset("registration_done");
+unset($_SESSION["registration_done"]);
 endif; 
 ?>
 <?php if(isset($_GET["q"]) && $_GET["q"] == "logout") {

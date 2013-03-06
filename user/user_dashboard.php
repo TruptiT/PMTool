@@ -1,46 +1,31 @@
 <?php
-include_once("../header_files.php");
-include_once('../authorize.php');
-$company_details = $user->get_company();
+include_once('header_for_logged_in_users.php');
 ?>
-<!--  Array ( [0] => 28 [1] => trupti [2] => trupti@fwfwe.com [3] => 202cb962ac59075b964b07152d234b70 [4] => 0 [5] => 0 [6] => 29 [7] => 2013-02-21 10:41:24 [8] => 0000-00-00 00:00:00 ) -->
 
-<div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<button type="button" class="btn btn-navbar" data-toggle="collapse"
-				data-target=".nav-collapse">
-				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
-			</button>
-			<a class="brand" href="#">Welcome <?php echo $company_details['name'] ?>!!!!!!!!!!!!!</a>
-			<div class="nav-collapse collapse">
-				<ul class="nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-					 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li class="divider"></li>
-							<li class="nav-header">Nav header</li>
-							<li><a href="#">Separated link</a></li>
-							<li><a href="#">One more separated link</a></li>
-							</ul>
-					</li>
-				</ul>
-				<div style="float: right;">
-					<a href="<?php echo APP_ROOT ?>index.php?q=logout" role="button" class="btn">Log out</a>
-					<span style="color: white; vertical-align: middle;"></span>
-				</div>
-			</div>
-			<!--/.nav-collapse -->
-		</div>
-	</div>
+<?php if(isset($_SESSION["newuser_registration_done"]) && $_SESSION["newuser_registration_done"]) :?>
+<div class="alert alert-success"
+	style="margin-top: 60px; margin-left: 90px; margin-right: 90px;">
+	<a href="javascript:void(0);" onclick="$('.alert-success').hide();"
+		class="close" data-dismiss="alert">&times;</a> <strong>Success!</strong>
+	New user registered successfully!!!
 </div>
+<?php 
+unset($_SESSION["newuser_registration_done"]);
+endif;
+?>
+
+<?php if(isset($_SESSION["new_role"]) && $_SESSION["new_role"]) :?>
+<div class="alert alert-success"
+	style="margin-top: 60px; margin-left: 90px; margin-right: 90px;">
+	<a href="javascript:void(0);" onclick="$('.alert-success').hide();"
+		class="close" data-dismiss="alert">&times;</a> <strong>Success!</strong>
+	New role added successfully!!!
+</div>
+<?php 
+unset($_SESSION["new_role"]);
+endif;
+?>
+
 
 <div class="container">
 

@@ -14,13 +14,13 @@
 <script src='<?= APP_ROOT.'assets/bootstrap/js/bootstrap-alert.js' ?>'></script>
 <script src='<?= APP_ROOT.'assets/bootstrap/js/bootstrap-modal.js' ?>'></script>
 <script src='<?= APP_ROOT.'assets/bootstrap/js/bootstrap-dropdown.js' ?>'></script>
+<script src='<?= APP_ROOT.'assets/bootstrap/js/bootstrap-tooltip.js' ?>'></script>
+<script src='<?= APP_ROOT.'assets/bootstrap/js/bootstrap-popover.js' ?>'></script>
+
+
 <script src="./assets/bootstrap/js/bootstrap-scrollspy.js"></script>
 <script
 	src="./assets/bootstrap/js/bootstrap-tab.js"></script>
-<script
-	src="./assets/bootstrap/js/bootstrap-tooltip.js"></script>
-<script
-	src="./assets/bootstrap/js/bootstrap-popover.js"></script>
 <script
 	src="./assets/bootstrap/js/bootstrap-button.js"></script>
 <script
