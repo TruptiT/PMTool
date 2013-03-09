@@ -44,7 +44,7 @@ function validate_edit_info(formId) {
 	var user_password = $("#edited_userpassword").val();	
 	var role_id = $("#edited_role_id").val();	
 	//your validation code
-	alert(role_id);
+	//alert(role_id);
 	if(user_name != "" && user_email != "" && user_password != "" && role_id != "0" ){
 		flag = true;
 		}else{

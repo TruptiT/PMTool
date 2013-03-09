@@ -8,6 +8,7 @@
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src='<?= APP_ROOT.'assets/jquery/jquery-1.7.2.min.js' ?>'> </script>
+ <script type="text/javascript" src='<?= APP_ROOT.'assets/jquery/jquery.form.js'?>' ></script>
 <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <script src='<?= APP_ROOT.'assets/bootstrap/js/jquery.js' ?>'></script>
 <script src='<?= APP_ROOT.'assets/bootstrap/js/bootstrap-transition.js' ?>'></script>

@@ -1,4 +1,5 @@
 <?php
+define ("MAX_SIZE","100");
 class User{
 
 	//Created By: Trupti Tumsare
@@ -47,10 +48,57 @@ class User{
 			echo "Sorry! User already exists";
 			return false;
 		}else{
+
 			$_SESSION["newuser_registration_done"] = true ;
 			$session_user = $_SESSION["user"];
 			$result = mysql_query("Insert into users(name,email,password,user_role_id,company_id) values ('$name','$email','$password','$role_id','$session_user[6]')") or die(mysql_error());
 			return true;
+		}
+	}
+
+	function image_upload($image_file){
+		$fileName = $image_file["name"];
+		$fileTmpLoc = $image_file["tmp_name"];
+		$fileType = $image_file["type"];
+		$fileSize = $image_file["size"];
+		$fileErrorMsg = $image_file["error"];
+		$get_ext = explode(".", $fileName);
+		$extension = end($get_ext);
+		if ($fileName)
+		{
+			if (($extension != "jpg") && ($extension != "jpeg") && ($extension !=
+					"png") && ($extension != "gif"))
+			{
+				echo '<h1>Unknown extension!</h1>';
+				$fileErrorMsg=1;
+			}
+			else
+			{
+				if ($fileSize > MAX_SIZE*1024)
+				{
+					echo '<h1>You have exceeded the size limit!</h1>';
+					$fileErrorMsg=1;
+				}
+				$image_name=time().'.'.$extension;
+				$newname="./assets/upload_images/".$image_name;
+				$copied = move_uploaded_file($image_file['tmp_name'], $newname);
+				if (!$copied)
+				{
+					echo '<h1>Copy unsuccessfull!</h1>';
+					$fileErrorMsg=1;
+				}else{
+					$fileName = addslashes($fileName);
+					$filePath = addslashes($newname);
+					$query = "INSERT INTO users_image( image_url ) VALUES ('$filePath')";
+					mysql_query($query) or die('Error, query failed');
+				}
+			}
+		}
+		if(!$fileErrorMsg)
+		{
+			return true;
+		}else{
+			return false;
 		}
 	}
 
@@ -122,13 +170,13 @@ class User{
 			$_SESSION["edited_user"] = true ;
 			return true;
 		}else{
-			return false;		
+			return false;
 		}
 	}
 
 	function delete_company_user($user_id){
 		$q = mysql_query("SELECT * FROM `users` where id = '$user_id' ");
-		$existing_user = mysql_fetch_array($q);		
+		$existing_user = mysql_fetch_array($q);
 		if($existing_user){
 			mysql_query("Delete FROM `users` where id = '$user_id' ") or die(mysql_error());
 			return true;

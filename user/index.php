@@ -4,6 +4,8 @@ include_once('header_for_logged_in_users.php');
 //include_once('show_user.php');
 $all_users = $user->list_all_users();
 ?>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script type="text/javascript">
 function get_user(id){
 	var loadPHP = "show_user.php?id="+id;

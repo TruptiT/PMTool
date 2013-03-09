@@ -25,7 +25,7 @@ endif;
 unset($_SESSION["new_role"]);
 endif;
 ?>
-
+    
 
 <div class="container">
 
@@ -77,4 +77,4 @@ endif;
 </div>
 <!-- /container -->
 
-<?php include_once("../footer.php"); ?>
+ <?php include_once("../footer.php"); ?>

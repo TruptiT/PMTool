@@ -4,6 +4,27 @@ $get_all_roles = $user->fetch_all_roles();
 ?>
 
 <script type="text/javascript">
+
+$(document).ready(function()
+		{
+		var options = {
+	        success: function(res) {
+	        	if(res==1){
+		            location.href ="user_dashboard.php";
+	        	 }else{
+					$("#mesg").html("");
+	                    }
+	        }
+	   	 };
+		    $('#newuser_reg').on('submit', function(e)
+		    {
+		        e.preventDefault();
+		        if(processForm('newuser_reg')){
+		        $(this).ajaxSubmit(options);
+		        }
+		    });
+		});
+
 function processForm(formId) { 
 	var flag = false;
 	var user_name = $("#username").val();	
@@ -31,23 +52,7 @@ function processForm(formId) {
 			}
 		flag = false;
 			}
-	if(flag){
-		$.ajax( {
-	        type: 'POST',
-	        url: "../ajax.php?q=new_user_registration",
-	        data: $("#"+formId).serialize(), 
-	        success: function(res) {
-	        	if(res==1){
-		            location.href ="user_dashboard.php";
-	        	 }else{
-					$("#mesg").html("Sorry! User already exists");
-	                    }
-	        }
-	    } );
-			return flag;
-		}else{
-			return flag;
-			}
+	return flag;
 
 	}
 
@@ -56,7 +61,9 @@ function processForm(formId) {
 	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
 	style="width: auto; height: auto;">
 
-	<form class="navbar-form pull-left" method="POST" id="newuser_reg">
+	<form class="navbar-form pull-left" method="POST" id="newuser_reg"
+		enctype="multipart/form-data"
+		action="../ajax.php?q=new_user_registration">
 		<h2 class="form-signin-heading modal-header">Please Register</h2>
 
 
@@ -106,21 +113,32 @@ function processForm(formId) {
 						<label class="checkbox">Assign Role:</label>
 					</div>
 					<div class="span8">
-						<select name="role_id" id="role_id" data-content="Please select the role."  class="show_err">
+						<select name="role_id" id="role_id"
+							data-content="Please select the role." class="show_err">
 							<option value="0">Please Select..</option>
 							<?php foreach ($get_all_roles as $role) : ?>
-							<option value="<?php echo $role['id'] ?>"><?php echo $role['title'] ?></option>
+							<option value="<?php echo $role['id'] ?>">
+								<?php echo $role['title'] ?>
+							</option>
 							<?php endforeach;?>
 						</select>
 					</div>
 				</div>
+<!-- 				<div class="row-fluid"> -->
+<!-- 					<div class="span4"> -->
+<!-- 						<label class="checkbox">Upload an Image:</label> -->
+<!-- 					</div> -->
+<!-- 					<div class="span8"> -->
+<!-- 						<input type="file" name="image" id="avatar"> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 			</div>
 		</div>
 
 		<div class="modal-footer" style="text-align: center;">
-			<button type="button" class="btn" name="reg_submit"
-				onclick="processForm('newuser_reg');">Submit</button>
+			<button type="submit" class="btn" id="uploadButton" name="reg_submit">Submit</button>
 		</div>
 
 	</form>
 </div>
+

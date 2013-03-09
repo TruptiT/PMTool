@@ -18,7 +18,6 @@ if ($_REQUEST["q"] == "user_signin"){
 }
 
 if ($_REQUEST["q"] == "new_user_registration"){
-	//print_r($_POST["username"]);
 	$newuser_signin_data = $user->newuser_signin($_POST["username"],$_POST["password"],$_POST["email"],$_POST["role_id"]);
 	if($newuser_signin_data){
 		echo "1";

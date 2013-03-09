@@ -8,11 +8,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-
+<script src='<?= APP_ROOT.'assets/jquery/jquery-1.7.2.min.js' ?>'> </script>
+   
 <!-- Le styles -->
-<link href='<?= APP_ROOT.'assets/bootstrap/css/bootstrap.css' ?>' rel="stylesheet">
-<link href='<?= APP_ROOT.'assets/bootstrap/css/custom.css' ?>' rel="stylesheet">
-<link href='<?= APP_ROOT.'assets/bootstrap/css/bootstrap-responsive.css' ?>'
+<link href='<?= APP_ROOT.'assets/bootstrap/css/bootstrap.css' ?>'
+	rel="stylesheet">
+<link href='<?= APP_ROOT.'assets/bootstrap/css/custom.css' ?>'
+	rel="stylesheet">
+<link
+	href='<?= APP_ROOT.'assets/bootstrap/css/bootstrap-responsive.css' ?>'
 	rel="stylesheet">
 
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -33,4 +37,4 @@
 </head>
 
 <body>
-<?php session_start(); ?>
+	<?php session_start(); ?>
