@@ -4,8 +4,10 @@ include_once('header_for_logged_in_users.php');
 //include_once('show_user.php');
 $all_users = $user->list_all_users();
 ?>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
-    <script src="http://malsup.github.com/jquery.form.js"></script> 
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<script
+	src="http://malsup.github.com/jquery.form.js"></script>
 <script type="text/javascript">
 function get_user(id){
 	var loadPHP = "show_user.php?id="+id;
@@ -21,6 +23,7 @@ function get_user(id){
 
 <div class="container-fluid" style="padding-top: 50px;">
 	<div class="row-fluid">
+		<?php if (empty($all_users) != 1) :?>
 		<div class="span3">
 			<div class="well sidebar-nav">
 				<ul class="nav nav-list">
@@ -34,6 +37,12 @@ function get_user(id){
 			</div>
 			<!--/.well -->
 		</div>
+		<?php else :?>
+		<div class="alert alert-block"
+			style="margin-top: 60px; margin-left: 90px; margin-right: 90px;">
+			<strong>Sorry!!!</strong> Not a single user exists. Please create Users for your Comapany.
+		</div>
+		<?php endif;?>
 		<!--/span-->
 		<div class="span9"></div>
 

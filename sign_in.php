@@ -4,7 +4,6 @@ include("header_files.php");
 
 <script type="text/javascript">
 function Signin(formId){
-	 
 	var flag = false;
 	var user_name = $("#signin_user_name").val();	
 	var user_password = $("#signin_user_password").val();			
@@ -27,10 +26,10 @@ function Signin(formId){
 	        url: "ajax.php?q=user_signin",
 	        data: $("#"+formId).serialize(), 
 	        success: function(response) {
-	            if(response==1){
-	            	location.href =<?php echo APP_ROOT?>+"user/user_dashboard.php";
+	            if(response==0){
+	            	alert("Invalid Username");
 	                }else{
-					alert("Invalid Username");
+	                	location.href =response;
 	                    } 
 	        }
 	    });

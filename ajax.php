@@ -11,14 +11,15 @@ if ($_REQUEST["q"] == "user_registration"){
 if ($_REQUEST["q"] == "user_signin"){
 	$user_signin_data = $user->user_signin($_POST["username"],$_POST["password"]);
 	if($user_signin_data){
-		echo "1";
+		$redirect_page = ($_SESSION["user"]["is_admin_user"] == 1) ? APP_ROOT."user/index.php" : "http://".$_SESSION["user"]["name"]."."."lvh.me".APP_ROOT."user/user_dashboard.php";
+		echo $redirect_page;
 	}else{
 		echo "0";
 	}
 }
 
 if ($_REQUEST["q"] == "new_user_registration"){
-	$newuser_signin_data = $user->newuser_signin($_POST["username"],$_POST["password"],$_POST["email"],$_POST["role_id"]);
+	$newuser_signin_data = $user->newuser_signup($_POST["username"],$_POST["password"],$_POST["email"],$_POST["role_id"]);
 	if($newuser_signin_data){
 		echo "1";
 	}else{

@@ -23,14 +23,14 @@ class User{
 			$company = mysql_query("Insert into companies(name,email,address,phone,mobile) values ('$company_name','$company_email','$company_address','$company_phone','$company_mobile')") or die(mysql_error());
 			$q = mysql_query("SELECT * FROM `companies` ORDER BY created_at DESC LIMIT 1 ");
 			$c = mysql_fetch_array($q);
-			$result = mysql_query("Insert into users(name,email,password,company_id) values ('$name','$email','$password','$c[0]')") or die(mysql_error());
+			$result = mysql_query("Insert into users(name,email,password,company_id,is_admin_user) values ('$name','$email','$password','$c[0]',1)") or die(mysql_error());
 		}
 	}
 
 	function user_signin($username,$password){
 		$password = md5($password);
 		$query = mysql_query("SELECT * FROM users where name='$username' and password = '$password'") or die(mysql_error());
-		$get_user = mysql_fetch_row($query);
+		$get_user = mysql_fetch_array($query);
 		if(mysql_num_rows($query) == 0){
 			$_SESSION["user"] = "";
 			return false;
@@ -40,7 +40,7 @@ class User{
 		}
 	}
 
-	function newuser_signin($name, $password, $email,$role_id){
+	function newuser_signup($name, $password, $email,$role_id){
 		$password = md5($password);
 		$check_user = mysql_query("SELECT * FROM users where name='$name' and password = '$password'") or die(mysql_error());
 		print_r(mysql_fetch_row($check_user));
@@ -48,7 +48,6 @@ class User{
 			echo "Sorry! User already exists";
 			return false;
 		}else{
-
 			$_SESSION["newuser_registration_done"] = true ;
 			$session_user = $_SESSION["user"];
 			$result = mysql_query("Insert into users(name,email,password,user_role_id,company_id) values ('$name','$email','$password','$role_id','$session_user[6]')") or die(mysql_error());
@@ -111,7 +110,7 @@ class User{
 
 	function list_all_users(){
 		$session_user = $_SESSION["user"];
-		$q = mysql_query("SELECT * FROM `users` where company_id = '$session_user[6]' ");
+		$q = mysql_query("SELECT * FROM `users` where company_id = '$session_user[6]' and is_admin_user= '0' ");
 		$users = array();
 		$i = 0;
 		while($result = mysql_fetch_array($q)){
